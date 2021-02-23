@@ -43,13 +43,6 @@ class AuthController extends Controller
         }
     }
 
-
-
-                // if ($request->file('profile_image')) {
-            //     $imagePath = $request->file('profile_image');
-            //     $imageName = $imagePath->getClientOriginalName();
-            //     $path = $request->file('profile_image')->storeAs('uploads', $imageName, 'public');
-            //   }
     public function register(Request $request)
     {
         try {
@@ -67,8 +60,6 @@ class AuthController extends Controller
                 return $this->returnValidationError($code, $validator);
             }
             //register
-            //Enhance this code
-           
             $data = $request->all();
             $data['password'] = Hash::make($request->password);
             if ($request->file('profile_image')) {

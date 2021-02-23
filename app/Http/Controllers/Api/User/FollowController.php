@@ -21,7 +21,6 @@ class FollowController extends Controller
     {
         try{
         //store follower
-        //Enhance this code
         $rules = [
             "user_id" => "required|numeric|exists:App\User,id",
         ];
@@ -30,7 +29,6 @@ class FollowController extends Controller
             $code = $this->returnCodeAccordingToInput($validator);
             return $this->returnValidationError($code, $validator);
         }
-        // لو عمل متابعة مره خليه ميقدرش يعمل متابعة تانى من الكود هنا
         if (Follower::where('user_id', '=', $request->user_id)->where('follower_id', '=', auth('user-api')->user()->id)->exists()) {
             return $this->returnError('703',trans('admin.user followed already'));
          }else{
@@ -39,9 +37,7 @@ class FollowController extends Controller
             $follower->follower_id =auth('user-api')->user()->id;
             $follower->save();
          }
-
         //return response
-        // رجع عنا المستخدم المتبوع واسمه عربي او انجلش على حسب لغة المستخدم وكذلك فعلها عند التسجيل واللوجن
         return $this->returnSuccessMessage(trans('admin.user followed successfully'));
         } catch (\Exception $ex) {
         return $this->returnError($ex->getCode(), $ex->getMessage());

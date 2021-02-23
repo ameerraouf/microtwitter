@@ -9,4 +9,5 @@ return [
     'user data retrieved successfully' => 'تم استرجاع بيانات المستخدم بنجاح',
     'credentials are not correct' => 'بيانات الدخول غير صحيحة',
     'user followed already' => 'انت قد قمت بمتابعة هذا المستخدم بالفعل مسبقا',
+    'you cant follow yourself' => 'لا يمكنك عمل متابعة لنفسك ',
 ];

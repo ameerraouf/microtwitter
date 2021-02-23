@@ -9,4 +9,5 @@ return [
     'user data retrieved successfully' => 'User data retrieved successfully',
     'credentials are not correct' => 'Credentials are not correct',
     'user followed already' => 'User followed already :)',
+    'you cant follow yourself' => 'You cant follow yourself',
 ];

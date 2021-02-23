@@ -31,6 +31,9 @@ class FollowController extends Controller
         }
         if (Follower::where('user_id', '=', $request->user_id)->where('follower_id', '=', auth('user-api')->user()->id)->exists()) {
             return $this->returnError('703',trans('admin.user followed already'));
+         }elseif((int)$request->user_id === auth('user-api')->user()->id){
+
+            return $this->returnError('708',trans('admin.you cant follow yourself'));
          }else{
             $follower= new Follower;
             $follower->user_id = $request->user_id;
